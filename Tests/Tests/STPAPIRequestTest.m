@@ -47,7 +47,7 @@
     }]]).andReturn(dataTaskMock);
 
     STPAPIClient *apiClientMock = OCMClassMock([STPAPIClient class]);
-    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://api.stripe.com"]);
+    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://www.bongloy.com/api"]);
     OCMStub([apiClientMock urlSession]).andReturn(urlSessionMock);
 
     id apiRequestMock = OCMClassMock([STPAPIRequest class]);
@@ -84,7 +84,7 @@
         OCMVerify([dataTaskMock resume]);
 
         OCMVerify([urlSessionMock dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(NSURLRequest *request) {
-            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://api.stripe.com/endpoint"]);
+            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://www.bongloy.com/api/endpoint"]);
             XCTAssertEqualObjects(request.HTTPMethod, @"POST");
             XCTAssertEqualObjects([[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding], @"key=value");
             return YES;
@@ -115,7 +115,7 @@
     }]]).andReturn(dataTaskMock);
 
     STPAPIClient *apiClientMock = OCMClassMock([STPAPIClient class]);
-    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://api.stripe.com"]);
+    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://www.bongloy.com/api"]);
     OCMStub([apiClientMock urlSession]).andReturn(urlSessionMock);
 
     id apiRequestMock = OCMClassMock([STPAPIRequest class]);
@@ -152,7 +152,7 @@
         OCMVerify([dataTaskMock resume]);
 
         OCMVerify([urlSessionMock dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(NSURLRequest *request) {
-            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://api.stripe.com/endpoint?key=value"]);
+            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://www.bongloy.com/api/endpoint?key=value"]);
             XCTAssertEqualObjects(request.HTTPMethod, @"GET");
             XCTAssertEqualObjects([[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding], @"");
             return YES;
@@ -183,7 +183,7 @@
     }]]).andReturn(dataTaskMock);
 
     STPAPIClient *apiClientMock = OCMClassMock([STPAPIClient class]);
-    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://api.stripe.com"]);
+    OCMStub([apiClientMock apiURL]).andReturn([NSURL URLWithString:@"https://www.bongloy.com/api"]);
     OCMStub([apiClientMock urlSession]).andReturn(urlSessionMock);
 
     id apiRequestMock = OCMClassMock([STPAPIRequest class]);
@@ -220,7 +220,7 @@
         OCMVerify([dataTaskMock resume]);
 
         OCMVerify([urlSessionMock dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(NSURLRequest *request) {
-            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://api.stripe.com/endpoint?key=value"]);
+            XCTAssertEqualObjects(request.URL, [NSURL URLWithString:@"https://www.bongloy.com/api/endpoint?key=value"]);
             XCTAssertEqualObjects(request.HTTPMethod, @"DELETE");
             XCTAssertEqualObjects([[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding], @"");
             return YES;
