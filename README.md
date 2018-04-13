@@ -1,3 +1,11 @@
+# Deprecation Notice
+
+This library is deprecated and is here for reference only. Please use the [stripe-ios](https://github.com/stripe/stripe-ios) library instead. To use the stripe ios library with Bongloy, change the following code in [STPAPIClient.m](https://github.com/stripe/stripe-ios/blob/master/Stripe/STPAPIClient.m)
+
+```objective-c
+  static NSString * const APIBaseURL = @"https://api.bongloy.com/v1";
+```
+
 # Stripe iOS SDK
 
 [![Build Status](https://travis-ci.org/bongloy/bongloy-ios.svg?branch=master)](https://travis-ci.org/bongloy/bongloy-ios)
@@ -40,19 +48,19 @@ Please see our [iOS Integration Guide](https://stripe.com/docs/mobile/ios) which
 
 There are 3 example apps included in the repository:
 
-- **UI Examples**: Shows off the various premade UI components the SDK includes, but is not a functional app and makes no network calls.
-- **Standard Integration (Swift)**: shows an integration using our prebuilt UI components.
-- **Custom Integration (ObjC)**: shows how to use our low-level methods to accept payments using several different payment methods.
+-   **UI Examples**: Shows off the various premade UI components the SDK includes, but is not a functional app and makes no network calls.
+-   **Standard Integration (Swift)**: shows an integration using our prebuilt UI components.
+-   **Custom Integration (ObjC)**: shows how to use our low-level methods to accept payments using several different payment methods.
 
 To try out any of these examples, clone this repository, open `Stripe.xcworkspace` with Xcode, and run the appropriate scheme. The **UI Examples** app can be run without any extra work necessary. In order to run the **Standard Integration (Swift)** or **Custom Integration (ObjC)** example, you must perform these setup steps:
 
-1. Execute `./setup.sh` from the root of the repository to build the necessary dependencies.
-2. If you haven't already, sign up for a [Stripe account](https://dashboard.stripe.com/register) (it takes seconds). Then go to https://dashboard.stripe.com/account/apikeys.
-3. Replace the `stripePublishableKey` constant in CheckoutViewController.swift (for the Standard Integration app) or Constants.m (for the Custom Integration app) with your Test Publishable Key.
-4. Head to https://github.com/stripe/example-ios-backend/tree/v11.0.0 and click "Deploy to Heroku" (you may have to sign up for a Heroku account as part of this process). Provide your Stripe test secret key for the STRIPE_TEST_SECRET_KEY field under 'Env'. Click "Deploy for Free".
-5. Replace the `backendBaseURL` variable in the example iOS app with the app URL Heroku provides you with (e.g. "https://my-example-app.herokuapp.com")
+1.  Execute `./setup.sh` from the root of the repository to build the necessary dependencies.
+2.  If you haven't already, sign up for a [Stripe account](https://dashboard.stripe.com/register) (it takes seconds). Then go to <https://dashboard.stripe.com/account/apikeys>.
+3.  Replace the `stripePublishableKey` constant in CheckoutViewController.swift (for the Standard Integration app) or Constants.m (for the Custom Integration app) with your Test Publishable Key.
+4.  Head to <https://github.com/stripe/example-ios-backend/tree/v11.0.0> and click "Deploy to Heroku" (you may have to sign up for a Heroku account as part of this process). Provide your Stripe test secret key for the STRIPE_TEST_SECRET_KEY field under 'Env'. Click "Deploy for Free".
+5.  Replace the `backendBaseURL` variable in the example iOS app with the app URL Heroku provides you with (e.g. "<https://my-example-app.herokuapp.com">)
 
-After this is done, you can make test payments through the app and see them in your Stripe dashboard. Head to https://stripe.com/docs/testing#cards for a list of test card numbers.
+After this is done, you can make test payments through the app and see them in your Stripe dashboard. Head to <https://stripe.com/docs/testing#cards> for a list of test card numbers.
 
 ## card.io
 
@@ -66,11 +74,11 @@ We welcome contributions of any kind including new features, bug fixes, and docu
 
 ### Running Tests
 
-1. Install Carthage (if you have homebrew installed, `brew install carthage`)
-2. From the root of the repo, install test dependencies by running `carthage bootstrap --platform ios --configuration Release --no-use-binaries`
-3. Open Stripe.xcworkspace
-4. Choose the "StripeiOS" scheme with the iPhone 6, iOS 10.3 simulator (required for snapshot tests to pass)
-5. Run Product -> Test
+1.  Install Carthage (if you have homebrew installed, `brew install carthage`)
+2.  From the root of the repo, install test dependencies by running `carthage bootstrap --platform ios --configuration Release --no-use-binaries`
+3.  Open Stripe.xcworkspace
+4.  Choose the "StripeiOS" scheme with the iPhone 6, iOS 10.3 simulator (required for snapshot tests to pass)
+5.  Run Product -> Test
 
 ## Migrating from Older Versions
 
